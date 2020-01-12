@@ -9,15 +9,15 @@ cd couleur
 ```  
 Create a virtualenv:  
 ```
-python3 -m venv venv   
+python3 -m venv couleur   
 ```  
 Activate it on Linux:
 ```
-. venv/bin/activate  
+. couleur/bin/activate  
 ```  
 Or on Windows cmd:  
 ```
-venv\Scripts\activate.bat  
+couleur\Scripts\activate.bat  
 ```  
 Install requirements:
 ```
