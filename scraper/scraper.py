@@ -10,7 +10,6 @@ from webcolors import rgb_to_hex
 import io
 import base64
 from time import sleep
-from public import images
 
 
 BASE_URL = 'https://www.instagram.com/'
@@ -91,7 +90,7 @@ def scrape(link):
     response_array = []
     for url in display_urls123:
         pic_details_json = {
-            "url": url,
+            "source": url,
             "hexes": get_palette_colors(url)
         }
         response_array.append(pic_details_json)
