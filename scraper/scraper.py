@@ -26,7 +26,7 @@ def get_byte_image(images_list):
         encoded_img = base64.encodebytes(
             img_byte_arr.getvalue()).decode('ascii')
         all_encodings.append(encoded_img)
-    print("len of encodings", len(all_encodings))
+    #("len of encodings", len(all_encodings))
     return all_encodings
 
 
@@ -50,20 +50,20 @@ def get_palette_colors(url):
 
 def get_profile(username):
     user_url = BASE_URL+str(username)+'/'
-    print('\n\n user url is:'+user_url)
+    #print('\n\n user url is:'+user_url)
     CURRENT_USER_URL = user_url
     # res = scrape(CURRENT_USER_URL)
     return scrape(CURRENT_USER_URL)
 
 
 def scrape(link):
-    print('\n\n# in scrape meothd.... about to scrape:', link)
+    # print('\n\n# in scrape meothd.... about to scrape:', link)
 
     http = PoolManager()
-    print("\n\n## about to make GET req.")
+    # print("\n\n## about to make GET req.")
     response = http.request('GET', link)
     stringy = response.data.decode("utf-8")
-    print("lens: ", len(stringy))
+    #print("lens: ", len(stringy))
     all_js = []
     js = []
 
@@ -74,8 +74,8 @@ def scrape(link):
 
     display_url_scrape.extend(
         (re.findall(r'"display_url":"(.*?)"', stringy, re.IGNORECASE | re.DOTALL)))
-    print('diaply url scrape')
-    print(display_url_scrape)
+    # print('diaply url scrape')
+    # print(display_url_scrape)
 
     js.extend((re.findall(r'<script type="text/javascript">window._sharedData = (.*);</script>\n<script type="text/javascript">window.__initialDataLoaded',
                           stringy, re.IGNORECASE | re.DOTALL)))
