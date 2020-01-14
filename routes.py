@@ -15,3 +15,8 @@ def get_tasks():
     user = request.args.get('user')
     response = get_profile(user)
     return jsonify(result=response)
+
+
+if __name__ == '__main__':
+    # Threaded option to enable multiple instances for multiple user access support
+    app.run(threaded=True, port=5000)
