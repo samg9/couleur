@@ -13,6 +13,9 @@ app.config['CORS_HEADERS'] = 'Content-Type'
 @cross_origin()
 def get_tasks():
     user = request.args.get('user')
+    print("User: ", user)
+    print(request.headers)
+    print("~~~~~~~~~~~")
     try:
         response = get_profile(user)
     except:
