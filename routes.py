@@ -13,7 +13,10 @@ app.config['CORS_HEADERS'] = 'Content-Type'
 @cross_origin()
 def get_tasks():
     user = request.args.get('user')
-    response = get_profile(user)
+    try:
+        response = get_profile(user)
+    except:
+        return "Record not found", 400
     return jsonify(result=response)
 
 
