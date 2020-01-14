@@ -81,7 +81,7 @@ def scrape(link):
                           stringy, re.IGNORECASE | re.DOTALL)))
 
     dict0 = json.loads(js[0])
-    print("incoming dict", dict0)
+    #print("incoming dict", dict0)
     list0 = dict0['entry_data']['ProfilePage']
     user_edges = list0[0]['graphql']['user']['edge_owner_to_timeline_media']['edges']
     display_urls123 = [str(i['node']['display_url']) for i in user_edges]
