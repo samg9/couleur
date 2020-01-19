@@ -18,7 +18,8 @@ def get_tasks():
     print("~~~~~~~~~~~")
     try:
         response = get_profile(user)
-    except:
+    except Exception as e:
+        print(e)
         return "Record not found", 400
     return jsonify(result=response)
 
