@@ -29,7 +29,7 @@ export variables
 export FLASK_APP=routes.py
 ```
 
-Run:
+Run app 
 ```
 FLASK run
 ```
