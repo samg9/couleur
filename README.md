@@ -1,4 +1,7 @@
-# couleur
+# Couleur API
+Scrapes instagram profiles for posts(images), generates color palettes for each post, returns hex values and image source 
+
+
 
 ## Install & run locally
 
@@ -33,6 +36,12 @@ Run app
 ```
 FLASK run
 ```
+
+or via the Procfile with Gunicorn
+```
+gunicorn routes:app
+```
+
 
 View on [localhost:5000](http://127.0.0.1:5000)
 
