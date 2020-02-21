@@ -13,11 +13,12 @@ app.config['CORS_HEADERS'] = 'Content-Type'
 @cross_origin()
 def get_tasks():
     user = request.args.get('user')
+    pal_size = request.args.get('pal_size')
     print("User: ", user)
     print(request.headers)
     print("~~~~~~~~~~~")
     try:
-        response = get_profile(user)
+        response = get_profile(user, pal_size)
     except Exception as e:
         print(e)
         return "Record not found", 400
