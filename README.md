@@ -2,7 +2,7 @@
 - Scrapes public instagram profiles for posts(images), generates color palettes for each post, returns hex values and image source 
 - Backend for https://github.com/samg9/couleur_frontend/ (live at https://couleur.herokuapp.com/)
 ### Example request and response 
-GET request from the command line:
+GET request from the command line, where plum is the insta user and 8 in the palette size:
 ```
 curl -i https://couleur-be.herokuapp.com/api/palettes?user="plum"&pal_size="8"
 ```
