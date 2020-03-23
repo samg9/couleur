@@ -1,6 +1,7 @@
 from flask import Flask, request, Response, jsonify
 from flask_cors import CORS, cross_origin
 from flask import Flask, make_response
+from scraper.scraper import get_profile, scrape
 import json
 app = Flask(__name__)
 
@@ -8,21 +9,16 @@ cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 
 
-@app.route('/api/podcasts', methods=['GET'])
+@app.route('/api/palettes', methods=['GET'])
 @cross_origin()
 def get_tasks():
-    podcast_show = request.args.get('podcast_show')
-    podcast_episode = request.arg.get('podcast_episode')
+    user = request.args.get('user')
+    pal_size = request.args.get('pal_size')
+    print("User: ", user)
+    print(request.headers)
+    print("~~~~~~~~~~~")
     try:
-        response = {
-            'podcastShow': podcast_show,
-            'podcastEpisode': podcast_episode,
-            'publisher': 'John Doe',
-            'cover':
-            'http://res.cloudinary.com/alick/image/upload/v1502689731/Despacito_uvolhp.jpg',
-            'src':
-                'http://res.cloudinary.com/alick/video/upload/v1502689683/Luis_Fonsi_-_Despacito_ft._Daddy_Yankee_uyvqw9.mp3'
-    }
+        response = get_profile(user, pal_size)
     except Exception as e:
         print(e)
         return "Record not found", 400
