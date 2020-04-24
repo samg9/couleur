@@ -11,7 +11,6 @@ app = Flask(__name__)
 UPLOAD_FOLDER = './'
 cors = CORS(app)
 app.config.from_envvar('APP_SETTINGS')
-print(app.config)
 app.config['CORS_HEADERS'] = 'Content-Type'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.secret_key = app.config['DEFAULT_APP_KEY']
