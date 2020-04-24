@@ -40,6 +40,7 @@ pip install -r requirements.txt
 export variables
 ```
 export FLASK_APP=routes.py
+export APP_SETTINGS=./settings.cfg
 ```
 
 Run app 
