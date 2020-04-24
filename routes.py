@@ -8,11 +8,13 @@ import os
 
 app = Flask(__name__)
 
-UPLOAD_FOLDER = '/Users/samurai/code/couleur/be_flask/'
+UPLOAD_FOLDER = './'
 cors = CORS(app)
+app.config.from_envvar('APP_SETTINGS')
+print(app.config)
 app.config['CORS_HEADERS'] = 'Content-Type'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-app.secret_key = "70l0"
+app.secret_key = app.config['DEFAULT_APP_KEY']
 
 # file upload 
 @app.route('/api/upload', methods=['POST'])
@@ -50,4 +52,4 @@ def get_tasks():
 
 if __name__ == '__main__':
     # Threaded option to enable multiple instances for multiple user access support
-    app.run(debug=True, threaded=True, port=5000 ,use_reloader=False)
+    app.run(debug=app.config['DEBUG'], threaded=app.config['THREADED'], port=app.conifg['PORT'] ,use_reloader=app.config['USE_RELOADER'])
